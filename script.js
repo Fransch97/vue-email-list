@@ -18,11 +18,12 @@ const app = new Vue({
                         const mail = boolean.data.response
                         console.log(mail)
                         this.emails.push(mail)
-                        
+                        if(this.emails.length === totMails){
+                            this.load = false
+                        }
                     })
             }
 
-            setTimeout(()=>{this.load = false},2000)
             
 
         },
