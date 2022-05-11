@@ -6,7 +6,8 @@ const app = new Vue({
     data:{
         banana : "hello",
         emails : [],
-        mailQuantity : 10
+        mailQuantity : 10,
+        load: true
     },
 
     methods: {
@@ -20,6 +21,10 @@ const app = new Vue({
                         
                     })
             }
+
+            setTimeout(()=>{this.load = false},2000)
+            
+
         },
        
     },

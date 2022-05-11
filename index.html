@@ -16,7 +16,10 @@
 </head>
 <body>
     <div id="app">
-        <ul>
+        <ul v-if="load">
+            <img src="img/pacman-video-game.gif" alt="">
+        </ul>
+        <ul v-else>
             <li v-for="mail in emails">{{mail}}</li>
         </ul>
     </div>
