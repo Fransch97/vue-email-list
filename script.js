@@ -5,29 +5,27 @@ const app = new Vue({
 
     data:{
         banana : "hello",
-        emails :[],
+        emails : [],
         mailQuantity : 10
     },
 
     methods: {
-        getBooleanApi(){
-            axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-                .then((boolean)=>{
-                    console.log(boolean.data.response)
-                })
-        },
-        for(tot, what){
-            for(i = 0; i< tot; i++){
-                what
+        generateEmails(totMails){
+            for(i = 0; i < totMails; i++){
+                axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+                    .then((boolean)=>{
+                        const mail = boolean.data.response
+                        console.log(mail)
+                        this.emails.push(mail)
+                        
+                    })
             }
-        }
+        },
+       
     },
 
     mounted() {
         console.log(this.banana)
-        this.getBooleanApi()
-        
-
-        
+        this.generateEmails(this.mailQuantity)
     },
 })
